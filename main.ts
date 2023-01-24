@@ -4,8 +4,12 @@ radio.onReceivedNumber(function (receivedNumber) {
 input.onButtonPressed(Button.A, function () {
     basic.showString("Ti" + input.temperature())
 })
+radio.onReceivedString(function (receivedString) {
+    radio.sendNumber(input.temperature())
+    basic.showIcon(IconNames.Heart)
+})
 input.onButtonPressed(Button.B, function () {
-    radio.sendNumber(1)
+    radio.sendString("Te")
 })
 radio.setGroup(1)
 basic.forever(function () {
